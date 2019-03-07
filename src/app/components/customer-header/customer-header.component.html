@@ -1,0 +1,13 @@
+<ion-toolbar slot="top">
+  <ion-item >
+    <ion-label>
+      <ion-icon name="search"></ion-icon>
+    </ion-label>
+    <ion-input [(ngModel)]="keyword" [ngModelOptions]="{standalone: true}" clearInput placeholder="Search Store"
+      (ionFocus)="isSearchBarFocused=true" (ionBlur)="isSearchBarFocused=false"></ion-input>
+
+    <ion-img [hidden]="!(!isSearchBarFocused && keyword.length == 0)" src="assets/icon/scan.png" style="width : 50px ; height : 50px;"
+      (click)="openScanner()"></ion-img>
+    <span [hidden]="!(isSearchBarFocused || keyword.length > 0)" (click)="search()">Search</span>
+  </ion-item>
+</ion-toolbar>

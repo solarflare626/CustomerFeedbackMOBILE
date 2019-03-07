@@ -1,5 +1,7 @@
 {
   "name": "customer-feedback-mobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

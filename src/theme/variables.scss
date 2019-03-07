@@ -74,4 +74,42 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  ion-toolbar{
+    --background :  #6d3636;
+    color: white;
+  }
+  ion-toolbar >ion-item{
+    --background: #6d3636;
+    color: white;
+  }
+  ion-toolbar > ion-item > ion-input{
+    border-bottom: none;
+    box-shadow: none;
+    color: white;
+  }
+  
+  // ion-tab-bar{
+  //   --background: #c17171;
+  //   --color: white;
+  // }
+  
+  /*
+    #562424 	(86,36,36)
+  #6d3636 	(109,54,54)
+  #924444 	(146,68,68)
+  #a94c4c 	(169,76,76)
+    #c17171 	(193,113,113)
+  */
+  
+  // .cameraView ion-nav{opacity:0;}
+  .cameraView {
+    width: 150px;
+    height: 150px;    
+    margin:auto;
+  }
+  // .cameraView,.cameraView ion-content,.cameraView .nav-decor,{
+  //   // background: transparent url("../../assets/imgs/camera_overlay.png") !important;
+  //   background-size: 100% 100% !important;
+  // }
 }

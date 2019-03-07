@@ -1,0 +1,24 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>menu</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-list>
+    <ion-item no-padding>
+      <div class="profile-item" style="width:100%;">
+        <ion-avatar class="profile-picture big-profile-picture">
+          <img src="{{user.picture}}">
+        </ion-avatar>
+        <h2 class="profile-name dark">{{user.firstname}} {{user.lastname}}</h2>
+        <div class="profile-info">{{user.email}}</div>
+      </div>
+    </ion-item>
+    <ion-item no-padding>
+      <div margin-start style="width:100%;">
+          <ion-button expand="block" color="primary" primary (click)="logout()">Logout</ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

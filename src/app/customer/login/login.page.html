@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <br>
+    <br>
+    <br>
+  <div class="empty-area">
+    <div class="title">Create an account</div>
+  </div>
+  <form #f="ngForm" novalidate (ngSubmit)="submit(f.value, f.valid)" class="loginForm">
+    <div class="login-content">
+      <ion-input type="text" name="studentid" minlength="9" maxlength="9" pattern="[0-9]{4}-[0-9]{4}"
+        [(ngModel)]="user.student_id" #studentid="ngModel" placeholder="Student/Faculty ID"></ion-input>
+      <ion-badge color="danger" item-right *ngIf="studentid.touched && !studentid.valid">
+        <span *ngIf="studentid.errors.required">required</span>
+        <span *ngIf="studentid.errors.pattern">must follow ****-****</span>
+      </ion-badge>
+      <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required minlength="8"
+        placeholder="Password"></ion-input>
+      <ion-badge color="danger" item-right *ngIf="password.touched && !password.valid">
+        <span *ngIf="password.errors.required">required</span>
+        <span *ngIf="password.errors.minlength">atleast 8 characters</span>
+      </ion-badge>
+      <br>
+      <br>
+      <br>
+      <ion-button (click)="login()" expand="block">Login</ion-button>
+      <ion-button expand="block" color="secondary" routerLink="/customer/signup" routerDirection="forward">Register
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

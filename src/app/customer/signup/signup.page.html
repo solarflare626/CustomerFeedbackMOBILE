@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>signup</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="add20">
+        <div class="empty-area">
+                <div class="title">Create an account</div>
+            </div>
+    <form #f="ngForm" novalidate (ngSubmit)="submit(f.value, f.valid)" class="loginForm">
+        <div class="login-content">
+            <ion-input type="text" name="studentid" minlength="9" maxlength="9" pattern="[0-9]{4}-[0-9]{4}"
+                [(ngModel)]="user.student_id" #studentid="ngModel" placeholder="Student/Faculty ID"></ion-input>
+            <ion-badge color="danger" item-right *ngIf="studentid.touched && !studentid.valid">
+                <span *ngIf="studentid.errors.required">required</span>
+                <span *ngIf="studentid.errors.pattern">must follow ****-****</span>
+            </ion-badge>
+            <ion-input type="text" name="firstname" minlength="2" [(ngModel)]="user.firstname" #firstname="ngModel"
+                placeholder="First name"></ion-input>
+            <ion-badge color="danger" item-right *ngIf="firstname.touched && !firstname.valid">
+                <span *ngIf="firstname.errors.required">required</span>
+                <span *ngIf="firstname.errors.minlength">atleast 2 characters</span>
+            </ion-badge>
+
+            <ion-input type="text" name="lastname" minlength="2" [(ngModel)]="user.lastname" #lastname="ngModel"
+                placeholder="Last name"></ion-input>
+            <ion-badge color="danger" item-right *ngIf="lastname.touched && !lastname.valid">
+                <span *ngIf="lastname.errors.required">required</span>
+                <span *ngIf="lastname.errors.minlength">atleast 2 characters</span>
+            </ion-badge>
+
+            <ion-input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                [(ngModel)]="user.email" #email="ngModel" required placeholder="Email Address"></ion-input>
+            <ion-badge color="danger" item-right *ngIf="email.touched && !email.valid">
+                <span *ngIf="email.errors.required">required</span>
+                <span *ngIf="email.errors.pattern">invalid email</span>
+            </ion-badge>
+
+            <ion-input type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required
+                minlength="8" placeholder="Password"></ion-input>
+            <ion-badge color="danger" item-right *ngIf="password.touched && !password.valid">
+                <span *ngIf="password.errors.required">required</span>
+                <span *ngIf="password.errors.minlength">atleast 8 characters</span>
+            </ion-badge>
+
+            <ion-input type="password" name="confirm_password" required minlength="8" placeholder="Re-enter password"
+                [(ngModel)]="user.confirm_password" #confirm_password="ngModel"></ion-input>
+            <ion-badge color="danger" item-right *ngIf="user.password != user.confirm_password && confirm_password.touched">
+                <span>Password does not match</span>
+            </ion-badge>
+
+            <ion-button type="submit" expand="block" color="danger">Create account</ion-button>
+           
+            <span>By signing up, you agree to our <strong>Terms</strong> and <strong>Data Policy</strong></span>
+        </div>
+    </form>
+</ion-content>
